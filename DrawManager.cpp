@@ -7,12 +7,17 @@ using namespace std;
 
 void DrawManager::draw_snake(sf::RenderWindow *window,
                              deque<pair<int, int>> *snake) {
-  sf::RectangleShape body(sf::Vector2f(Env::BLOCK_SIZE, Env::BLOCK_SIZE));
-  body.setFillColor(sf::Color(10, 150, 32));
+
+  sf::RectangleShape body(
+      sf::Vector2f(Env::BLOCK_SIZE - 2, Env::BLOCK_SIZE - 2));
+  body.setFillColor(sf::Color::Blue);
   for (auto position : *snake) {
-    body.setPosition(position.first, position.second);
+    body.setPosition(position.first + 1, position.second + 1);
     window->draw(body);
-    body.setFillColor(sf::Color::Green);
+    if (snake->size() >= 2 && position == snake->at(snake->size() - 2))
+      body.setFillColor(sf::Color::Yellow);
+    else
+      body.setFillColor(sf::Color::Green);
   }
 }
 void DrawManager::draw_apple(sf::RenderWindow *window,

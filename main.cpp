@@ -18,6 +18,7 @@ private:
 
 public:
   Game() {
+    srand(time(NULL));
     window.create(sf::VideoMode(Env::WIDTH, Env::HEIGHT + 40), "Snake Game");
     start();
   }

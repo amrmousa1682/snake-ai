@@ -11,25 +11,21 @@ int PathFinder::find_road(Snake *snake, pair<int, int> apple) {
   if (!road.empty()) {
     int dir = road.front();
     road.pop_front();
-    cout << "road found" << endl;
     return dir;
   }
   // find road
   road = bfs(snake, apple);
   // if there is no road find safe move
   if (road.empty()) {
-    cout << "invalid road" << endl;
     return find_safe_move(snake, apple);
   }
   road.pop_front();
   if (!check_valid_road(snake, &road, 1)) {
     road.clear();
-    cout << "invalid road" << endl;
     return find_safe_move(snake, apple);
   }
   int dir = road.front();
   road.pop_front();
-  cout << "road found" << endl;
   return dir;
 }
 deque<int> PathFinder::bfs(Snake *snake, pair<int, int> target) {
@@ -127,6 +123,10 @@ int PathFinder::find_safe_move(Snake *snake, pair<int, int> apple) {
                          new_head.first.second - snake->body.back().second),
                      i});
     }
+    if(new_head.first == apple)
+      ans.push_back({0, i});
+    else
+      ans.push_back({-1, i});
     temp.pop_back();
   }
   sort(ans.begin(), ans.end());
