@@ -8,16 +8,15 @@ using namespace std;
 class Snake {
 
 public:
-    deque<pair<int, int>> body;
-    pair<int, int> head, tail;
-    int direction;
+  deque<pair<int, int>> body;
+  int direction;
 
-    Snake(int x, int y);
-    void move();
-    void grow();
-    void follow_road(deque<int>*road);
-    bool is_dead(pair<int,int> head);
+  Snake(int x, int y);
+  void move(int dir);
+  void grow();
+  void follow_road(deque<int> *road);
+  int get_postion_index(pair<int, int> position);
+  bool is_dead(pair<int, int> head);
 };
 
-
-#endif //SNAKE_AI_SNAKE_H
+#endif // SNAKE_AI_SNAKE_H
