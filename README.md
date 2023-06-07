@@ -6,7 +6,7 @@ This is a simple game of Snake with an AI component written in C++ using the SFM
 
 ## Project Run
 
-![ezgif-3-6444a3ed1f](https://github.com/amrmousa1682/snake-ai/assets/70464867/807e7b01-c040-4002-8a65-e94578ef3d2f)
+![ezgif-3-6444a3ed1f](https://github.com/amrmousa1682/snake-ai/assets/70464867/5a1d5814-1ef8-47d8-9c55-ffa8ba20db9d)
 
 ## Requirements
 
